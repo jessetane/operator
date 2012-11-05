@@ -47,7 +47,7 @@ function proxyServices (req, res, next) {
   }
 }
 
-// allows serving specific versions of a service
+// serve specific versions of a service via query param
 function getServiceName (req) {
   var rawhost = req.headers.host;
   var parts = rawhost.split(":");
