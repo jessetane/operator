@@ -20,9 +20,9 @@ proxy.on('upgrade', function(req, socket, head) {
 // seaport server
 seaport = seaport.createServer();
 seaport.listen(8081);
-seaport.on("register", function (err, data) {
-  console.log("A new service registered!", err, data);
-});
+seaport.on("register", console.log.bind(null, "register"));
+seaport.on("free", console.log.bind(null, "free"));
+
 
 // operator server
 var operator = connect();
