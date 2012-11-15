@@ -1,17 +1,16 @@
 {
-  "name": "operator",
+  "name": "seaproxy",
   "version": "0.0.1",
   "description": "A seaport powered reverse proxy server",
-  "main": "operator.js",
+  "main": "seaproxy.js",
   "author": "Jesse Tane <jesse.tane@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jessetane/operator.git"
+    "url": "https://github.com/jessetane/seaproxy.git"
   },
   "dependencies": {
     "connect": "*",
     "http-proxy": "*",
-    "request": "*",
     "seaport": "git://github.com/jessetane/seaport.git#epipe_error"
   }
 }

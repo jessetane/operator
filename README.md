@@ -1,4 +1,4 @@
-# operator
-A seaport powered reverse proxy server.  
+# seaproxy
+A seaport powered reverse proxy server
   
-Just playing around for now...
+Just playing around...

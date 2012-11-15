@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 
 /*
- *  operator.js
+ *  seaproxy.js
  *
  */
  
 
+var env = process.env;
+env.SEAPORT_PORT = env.SEAPORT_PORT || 8000;
+env.SEAPROXY_PORT = env.SEAPROXY_PORT || 8080;
+
 var connect = require("connect");
 var httpProxy = require("http-proxy");
-var operatorPort = process.argv[2] || "8080";
 var seaport = require('seaport');
+
 
 // proxy router
 var proxy = new httpProxy.RoutingProxy();
@@ -19,19 +23,18 @@ proxy.on('upgrade', function(req, socket, head) {
 
 // seaport server
 seaport = seaport.createServer();
-seaport.listen(8081);
+seaport.listen(env.SEAPORT_PORT);
 seaport.on("register", console.log.bind(null, "register"));
 seaport.on("free", console.log.bind(null, "free"));
 
-
-// operator server
-var operator = connect();
-operator.use(connect.query());
-operator.use(proxyServices);
-operator.use(connect.bodyParser());
-operator.use(error);
-operator.listen(operatorPort);
-console.log("Operator listening on port", operatorPort);
+// seaproxy server
+var seaproxy = connect();
+seaproxy.use(connect.query());
+seaproxy.use(proxyServices);
+seaproxy.use(connect.bodyParser());
+seaproxy.use(error);
+seaproxy.listen(env.SEAPROXY_PORT);
+console.log("Seaproxy listening on port", env.SEAPROXY_PORT);
 
 // proxy incoming requests to registered services
 function proxyServices (req, res, next) {
