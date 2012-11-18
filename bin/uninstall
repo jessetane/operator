@@ -1,0 +1,8 @@
+#
+#
+#
+
+cd "$(dirname "$0")"/..
+[ -z "$NAME" ] && NAME="seaproxy"
+
+echo "TODO"

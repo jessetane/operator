@@ -11,6 +11,6 @@
   "dependencies": {
     "connect": "*",
     "http-proxy": "*",
-    "seaport": "git://github.com/jessetane/seaport.git#epipe_error"
+    "portland": "*"
   }
 }

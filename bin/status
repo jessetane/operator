@@ -1,0 +1,12 @@
+#
+#
+#
+
+cd "$(dirname "$0")"/..
+[ -z "$NAME" ] && NAME="seaproxy"
+
+if [ -e pid ]; then
+  echo "$NAME : "`mon --pidfile pid --status`
+else
+  echo "$NAME : stopped"
+fi
