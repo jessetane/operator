@@ -7,9 +7,6 @@ Just playing around with service registries...
 ## How
 connect + http-proxy + portland
 
-## Install
-```npm install operator -g```
-
 ## Usage
 ```operator``` runs a server  
 ```operator 8000``` runs a server on port 8000
