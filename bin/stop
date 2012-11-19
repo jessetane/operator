@@ -6,9 +6,9 @@ cd "$(dirname "$0")"/..
 
 if [ -e mpid ]; then
   kill `cat mpid`
-  [ $? == 0 ] && echo "seaproxy stopped"
+  [ $? == 0 ] && echo "operator stopped"
 else
-  echo "seaproxy is already stopped"
+  echo "operator is already stopped"
 fi
 
 rm mpid > /dev/null 2>&1

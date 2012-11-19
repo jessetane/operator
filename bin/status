@@ -5,7 +5,7 @@
 cd "$(dirname "$0")"/..
 
 if [ -e pid ]; then
-  echo "seaproxy : "`mon --pidfile pid --status`
+  echo "operator : "`mon --pidfile pid --status`
 else
-  echo "seaproxy : stopped"
+  echo "operator : stopped"
 fi
