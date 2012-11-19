@@ -11,7 +11,7 @@ connect + http-proxy + portland
 ```npm install operator -g```
 
 ## Usage
-```operator``` runs a server
+```operator``` runs a server  
 ```operator 8000``` runs a server on port 8000
 
 ## License
