@@ -3,10 +3,7 @@
 #
 
 cd "$(dirname "$0")"/..
-[ -z "$NAME" ] && NAME="seaproxy"
 
-[[ -e mpid || -e pid ]] && echo "$NAME appears to already be running" && exit 1
-[ -z "$PORT" ] && PORT="8000"
-
-echo "starting $NAME on $PORT"
-mon -d -p pid -m mpid -l log "node node_modules/seaproxy/seaproxy"
+[[ -e mpid || -e pid ]] && echo "operator appears to already be running" && exit 1
+mon -d -p pid -m mpid -l log "node index.js"
+[ $? == 0 ] && echo "operator started"

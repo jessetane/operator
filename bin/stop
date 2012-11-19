@@ -3,13 +3,12 @@
 #
 
 cd "$(dirname "$0")"/..
-[ -z "$NAME" ] && NAME="seaproxy"
 
 if [ -e mpid ]; then
-  echo "stopping $NAME"
   kill `cat mpid`
+  [ $? == 0 ] && echo "seaproxy stopped"
 else
-  echo "$NAME is already stopped"
+  echo "seaproxy is already stopped"
 fi
 
 rm mpid > /dev/null 2>&1
