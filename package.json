@@ -10,8 +10,7 @@
   "dependencies": {
     "connect": "*",
     "http-proxy": "*",
-    "portland": "*",
-    "dnsserver": "*"
+    "portland": "*"
   },
   "bin": {
     "operator": "index.js"
