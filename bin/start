@@ -4,6 +4,6 @@
 
 cd "$(dirname "$0")"/..
 
-[[ -e mpid || -e pid ]] && echo "operator appears to already be running" && exit 1
+[[ -e mpid || -e pid ]] && echo "operator appears to already be running" > /dev/stderr && exit 1
 mon -d -p pid -m mpid -l log "node index.js"
 [ $? == 0 ] && echo "operator started"
