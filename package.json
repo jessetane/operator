@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "connect": "*",
-    "http-proxy": "*",
-    "portland": "*"
+    "http-proxy": "0.8.7",
+    "portland": "0.0.10"
   },
   "bin": {
     "operator": "index.js"
