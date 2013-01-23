@@ -1,9 +1,27 @@
 #
-#
+# start
 #
 
 cd "$(dirname "$0")"/..
 
-[[ -e mpid || -e pid ]] && echo "operator appears to already be running" > /dev/stderr && exit 1
-mon -d -p pid -m mpid -l log "node index.js"
-[ $? == 0 ] && echo "operator started"
+# environment
+. bin/profile
+
+# require $NAME and $RUN
+[ -z "$NAME" ] && echo '$NAME is not defined' >&2 && exit 1
+[ -z "$RUN" ] && echo '$RUN is not defined' >&2 && exit 1
+
+# bail if running
+bin/status > /dev/null && echo "$NAME is already running" >&2 && exit 1
+
+# log date
+echo -e "\n"$(date)" starting up..." >> log
+
+# start the service - your profile must supply $RUN!
+mon -d -p pid -m mpid -l log "$RUN"
+
+# chill for half a sec
+sleep 0.5
+
+# are we up?
+bin/status > /dev/null && echo "$NAME started successfully" || (echo "$NAME failed to start" >&2 && exit 1)
